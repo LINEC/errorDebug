@@ -9,14 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="pull-left">deBug</div>
-            <div class="pull-right">
-                <a class="btn btn-default" href="#" role="button">登录</a>
-                <a class="btn btn-default" href="#" role="button">注册</a></div>
-        </div>
-    </div>
+    <div class="header"></div>
     <div class="container">
         <h3>创建新项目</h3>
         <div class="form-group">
@@ -74,7 +67,10 @@
             <!--用父容器来控制宽度-->
                 <!--用当前元素来控制高度-->
                 <div id="problemDescription" style="height:400px;max-height:500px;"></div>
-            <button id="clearBtn" class="btn btn-default">清空</button>
+        </div>
+        <div class="form-group pull-right">
+            <button id="sendBtn" type="submit" class="btn btn-primary">发送</button>
+            <button id="clearBtn" type="reset" class="btn btn-default">清空</button>
         </div>
     </div>
     <div class="footer">
@@ -83,7 +79,8 @@
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="editor/js/wangEditor.min.js"></script>
+<script src="editor/js/wangEditor.min.js"></script>
+<script src="js/main.js"></script>
 <script type="text/javascript">
     // 获取元素
     var div = document.getElementById('problemDescription');

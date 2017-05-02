@@ -1,21 +1,60 @@
 body{
     background-color: #f2f2f2;
 }
+
+.mt20{
+    margin-top: 20px;
+}
+
 .header{
     width: 100%;
     background-color: #fff;
-    line-height: 50px;
+    line-height: 66px;
+    min-height: 66px;
+    color: #13AB67;
+    margin-bottom: 30px;
 }
+
+.logo{
+    font-size: 28px;
+    color: #13AB67;
+}
+
+.logo:hover{
+    text-decoration: none;
+    color: #13AB67;
+}
+
+.header .pull-right a{
+    color: #13AB67;
+    padding:10px 20px;
+}
+
+.registerA{
+    border:1px solid #13AB67;
+    border-radius: 5px;
+}
+
 .login-container{
-    width: 50%;
-    padding: 5%;;
+    width: 30%;
+    padding: 8rem;
+    margin: 10% auto;
     overflow: hidden;
     background-color: #fff;
 }
+
+@media (max-width:768px){
+    .login-container {
+        width: 100%;
+        margin: 0;
+    }
+}
+
 .footer{
     background-color: #283645;
     color: #eee;
     line-height: 5rem;
+    margin-top: 50px;
 }
 
 .row-margin{
