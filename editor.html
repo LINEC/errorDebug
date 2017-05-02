@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入wangEditor.css-->
+    <link rel="stylesheet" type="text/css" href="editor/css/wangEditor.min.css">
+</head>
+<body>
+<!--用父容器来控制宽度-->
+<div style="width:90%">
+    <!--用当前元素来控制高度-->
+    <div id="div1" style="height:400px;max-height:500px;">
+        <p>请输入内容...</p>
+    </div>
+</div>
+<button id="clearBtn">清空</button>
+
+</body>
+<!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
+<script type="text/javascript" src="editor/js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="editor/js/wangEditor.min.js"></script>
+<!--这里引用jquery和wangEditor.js-->
+<script type="text/javascript">
+    // 获取元素
+    var div = document.getElementById('div1');
+    // 生成编辑器
+    var editor = new wangEditor(div);
+    editor.create();
+
+    // 初始化编辑器的内容
+    editor.$txt.html('<p>请开始你的表演...</p>');
+
+    $('#clearBtn').click(function () {
+        // 清空内容。
+        // 不能传入空字符串，而必须传入如下参数
+        editor.$txt.html('<p><br></p>');
+    });
+
+    $('#btn1').click(function () {
+        // 获取编辑区域的html
+        var html = editor.$txt.html();
+        // 获取编辑区域的纯文本
+        var text = editor.$txt.text();
+        // 获取编辑区域的所有图片
+        var imgs = editor.$txt.find('img');
+        // 追加内容
+        editor.$txt.append('<p>新内容</p>');
+
+        // ...更多...
+    });
+</script>
+</html>

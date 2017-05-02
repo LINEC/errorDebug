@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="editor/css/wangEditor.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="pull-left">deBug</div>
+            <div class="pull-right">
+                <a class="btn btn-default" href="#" role="button">登录</a>
+                <a class="btn btn-default" href="#" role="button">注册</a></div>
+        </div>
+    </div>
+    <div class="container">
+        <h3>创建新项目</h3>
+        <div class="form-group">
+            <input class="form-control input-lg" type="text" placeholder="问题名称">
+        </div>
+        <div class="form-group">
+            <label for="problemIntro">问题简介</label>
+            <textarea id="problemIntro" class="form-control" rows="3">简单描述问题,便于其他人理解</textarea>
+        </div>
+        <div class="form-group">
+            <lable>客户名</lable>
+            <input class="form-control" type="text" placeholder="客户名字">
+        </div>
+        <div class="form-group">
+            <lable>问题类别</lable>
+            <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <lable>问题级别</lable>
+            <select class="form-control">
+                <option>高</option>
+                <option>中</option>
+                <option>低</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <lable>指派人</lable>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    技术部1号
+                </label>
+                <label>
+                    <input type="checkbox" value="">
+                    技术部2号
+                </label>
+                <label>
+                    <input type="checkbox" value="">
+                    技术部3号
+                </label>
+                <label>
+                    <input type="checkbox" value="">
+                    技术部4号
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="problemDescription">问题详情</label>
+            <!--用父容器来控制宽度-->
+                <!--用当前元素来控制高度-->
+                <div id="problemDescription" style="height:400px;max-height:500px;"></div>
+            <button id="clearBtn" class="btn btn-default">清空</button>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">Copyright</div>
+    </div>
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="editor/js/wangEditor.min.js"></script>
+<script type="text/javascript">
+    // 获取元素
+    var div = document.getElementById('problemDescription');
+    // 生成编辑器
+    var editor = new wangEditor(div);
+    editor.create();
+
+    // 初始化编辑器的内容
+    editor.$txt.html('<p>请开始你的表演...</p>');
+
+    $('#clearBtn').click(function () {
+        // 清空内容。
+        // 不能传入空字符串，而必须传入如下参数
+        editor.$txt.html('<p><br></p>');
+    });
+
+    $('#btn1').click(function () {
+        // 获取编辑区域的html
+        var html = editor.$txt.html();
+        // 获取编辑区域的纯文本
+        var text = editor.$txt.text();
+        // 获取编辑区域的所有图片
+        var imgs = editor.$txt.find('img');
+        // 追加内容
+        editor.$txt.append('<p>新内容</p>');
+
+        // ...更多...
+    });
+</script>
+</html>
