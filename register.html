@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Title</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/main.css">
 </head>
 <body>
     <div class="header"></div>
-    <div class="container login-container">
+    <div class="container login-container register-container">
         <form>
             <div class="form-group">
                 <label for="userName">用户名</label>
-                <input type="text" class="form-control" id="userName" placeholder="请输入用户名">
+                <input type="text" class="form-control" id="userName" placeholder="请输入用户名" title="Example tooltip">
             </div>
             <div class="form-group">
-                <label for="password">密码</label>
-                <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                <label for="userPassword">密码</label>
+                <input type="password" class="form-control" id="userPassword" placeholder="请输入密码">
             </div>
             <div class="form-group">
                 <label for="confirmPassword">重复密码</label>
@@ -29,32 +29,54 @@
             </div>
             <div class="form-group">
                 <label for="mobilePhone">手机号</label>
-                <input type="number" class="form-control" id="mobilePhone" placeholder="请输入手机号">
+                <input type="tel" pattern="\d{11}" class="form-control" id="mobilePhone" placeholder="请输入手机号">
             </div>
             <div class="form-group">
                 <label for="department">部门</label>
                 <div class="row row-margin">
                         <div class="input-group">
                             <div class="input-group-btn">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择部门 <span class="caret"></span></button>
-                                <ul class="dropdown-menu" id="department">
+                                <button id="departmentBtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择部门 <span class="caret"></span></button>
+                                <ul id="departmentUl" class="dropdown-menu" >
                                     <li><a href="#">技术一部</a></li>
                                     <li><a href="#">商务一部</a></li>
-                                    <li><a href="#">商务一部</a></li>
+                                    <li><a href="#">商务二部</a></li>
                                 </ul>
                             </div><!-- /btn-group -->
-                            <input type="text" class="form-control" aria-label="...">
+                            <input id="department" type="text" class="form-control" aria-label="..." readonly>
                         </div><!-- /input-group -->
                 </div><!-- /.row -->
-
-
             </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block">注册</button>
+            <button id="registerBtn" type="button" class="btn btn-primary btn-lg btn-block">注册</button>
         </form>
     </div>
     <div class="footer"></div>
 </body>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="static/js/jquery-3.2.1.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/main.js"></script>
+<script src="static/js/template-web.js"></script>
+<script>
+
+
+    $('#departmentUl li').click(function () {
+        var val = $(this).text();
+        $('#department').val(val);
+    });
+
+    $('#registerBtn').click(function () {
+        var data = {
+            userName : $('#userName').val(),
+            userPassword : $('#userPassword').val(),
+            confirmPassword : $('#confirmPassword').val(),
+            realName : $('#realName').val(),
+            department : $('#department').val()
+        };
+
+        if(!data.userName){
+            $('#userName').tooltip('toggle')
+        }
+
+    })
+</script>
 </html>
